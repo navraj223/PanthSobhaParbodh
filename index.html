@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Horizontal Timeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            padding: 100px;
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 50% 10%;
+            border-bottom-right-radius: 50% 10%;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        /* Horizontal Timeline Section */
+        #timeline-section {
+            padding: 50px;
+            background-color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        #timeline-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            position: relative;
+            scrollbar-width: thin;
+        }
+
+        /* Custom scrollbar for webkit browsers */
+        .timeline-container::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .timeline-container::-webkit-scrollbar-thumb {
+            background-color: #6a89cc;
+            border-radius: 5px;
+        }
+
+        .timeline-container::-webkit-scrollbar-track {
+            background: #ddd;
+        }
+
+        /* Individual Timeline Event Cards */
+        .timeline-event {
+            min-width: 250px;
+            max-width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .timeline-event:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Timeline Event Content */
+        .timeline-event h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-event p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        /* Timeline Event Marker */
+        .timeline-marker {
+            height: 10px;
+            width: 10px;
+            background-color: #6a89cc;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+
+        /* Button for scrolling */
+        .scroll-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #6a89cc;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100; /* Ensures the button is on top */
+        }
+
+        .scroll-btn.left {
+            left: 10px; /* Adjusts distance from the left */
+        }
+
+        .scroll-btn.right {
+            right: 10px; /* Adjusts distance from the right */
+        }
+
+        .scroll-btn:hover {
+            background-color: #577bc1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#timeline-section">Timeline</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <h1>Welcome to Panth Sobha Parbodh</h1>
+    <p>Scroll down for our interactive timeline</p>
+</section>
+
+<!-- Horizontal Timeline Section -->
+<section id="timeline-section">
+    <h2>Timeline</h2>
+    <div class="timeline-container" id="timelineContainer">
+        <!-- Scroll Buttons -->
+        <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+        <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+
+        <!-- Event 1 -->
+        <a href="articles/babatarasinghwann/tarasinghwann.html" class="timeline-event">
+            <div class="timeline-marker"></div>
+            <h3>Tara Singh Wann (1726) </h3>
+            <p>Baba Tara Singh Waan, a fierce warrior and Nihang Singh, fought bravely alongside Banda Bahadur against the Mughals. Known for his unshakable devotion to Guru Gobind Singh Ji, he participated in numerous battles and eventually embraced martyrdom in 1725 while defending Sikh honor against the Mughal forces. His shaheedi inspired future generations of Sikhs and fortified the spirit of the Khalsa.</p>
+        </a>
+
+        <!-- Event 2 -->
+        <a href="/articles/botasinghandgarjasingh/index.html" class="timeline-event">
+            <div class="timeline-marker"></div>
+            <h3>Bota Singh & Garja Singh (1739)</h3>
+            <p>Two brave Singhs, Bota Singh and Garja Singh, boldly declared the sovereignty of the Khalsa by confronting Mughal oppression. Despite overwhelming odds, they faced the Mughal army, embracing martyrdom to prove that the Khalsa was still alive and would never be defeated.</p>
+        </a>
+
+        <!-- Event 3 -->
+        <a href="article3.html" class="timeline-event">
+            <div class="timeline-marker"></div>
+            <h3>Event 3</h3>
+            <p>A brief description for Event 3.</p>
+        </a>
+
+        <!-- Event 4 -->
+        <a href="article4.html" class="timeline-event">
+            <div class="timeline-marker"></div>
+            <h3>Event 4</h3>
+            <p>A brief description for Event 4.</p>
+        </a>
+
+        <!-- Add more events here -->
+
+        <a href="article4.html" class="timeline-event">
+            <div class="timeline-marker"></div>
+            <h3>Event 4</h3>
+            <p>A brief description for Event 4.</p>
+        </a>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Panth Sobha Parbodh</p>
+</div>
+
+<script>
+    // Scroll Buttons for Horizontal Scroll
+    const container = document.querySelector('.timeline-container');
+    const scrollLeft = document.getElementById('scrollLeft');
+    const scrollRight = document.getElementById('scrollRight');
+
+    function checkScrollButtons() {
+        // Hide left button if at the start
+        if (container.scrollLeft === 0) {
+            scrollLeft.style.display = 'none';
+        } else {
+            scrollLeft.style.display = 'block';
+        }
+
+        // Hide right button if at the end
+        if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+            scrollRight.style.display = 'none';
+        } else {
+            scrollRight.style.display = 'block';
+        }
+    }
+
+    scrollLeft.addEventListener('click', (e) => {
+        e.stopPropagation();  // Prevent event bubbling to underlying elements
+        container.scrollBy({
+            top: 0,
+            left: -300,  // scroll left by 300px
+            behavior: 'smooth'
+        });
+    });
+
+    scrollRight.addEventListener('click', (e) => {
+        e.stopPropagation();  // Prevent event bubbling to underlying elements
+        container.scrollBy({
+            top: 0,
+            left: 300,  // scroll right by 300px
+            behavior: 'smooth'
+        });
+    });
+
+    // Trigger check on page load and after scroll events
+    container.addEventListener('scroll', checkScrollButtons);
+    window.addEventListener('load', checkScrollButtons);
+
+</script>
+
+</body>
+</html>
